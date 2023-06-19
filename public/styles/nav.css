@@ -1,0 +1,35 @@
+nav {
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1; 
+  background-image: ('../images/cutcuge.png'); 
+  background-repeat: repeat;
+  color: white;
+  padding: 0 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  position: fixed; 
+  top: 0; 
+}
+
+
+nav span {
+  font-family: "Bungee", sans-serif;
+} 
+
+nav .tweet-section {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  height: 100%; 
+}
+
+.tweet-section span {
+  margin-right: 0.5em;
+} 
+
+.tweet-section i {
+  color: red;
+}
