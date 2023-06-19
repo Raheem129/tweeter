@@ -27,4 +27,10 @@ nav .logo {
 
 body, nav .logo {
   font-family: "Source Sans 3", sans-serif; /* Fallback to sans-serif if the specified fonts are not available */
+} 
+
+main {
+  width: 90%;
+  margin: 0 auto; 
+  background-color: inherit;
 }
