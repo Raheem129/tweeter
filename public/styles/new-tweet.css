@@ -37,4 +37,8 @@ output {
   font-size: 40px; /* Adjust the font size */
   padding: 0.2em 0.5em; /* Adjust the padding */ 
   font-family: "Bungee"
+} 
+
+.counter.invalid {
+  color: red;
 }
