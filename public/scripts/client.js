@@ -15,32 +15,29 @@ const renderTweets = function(tweets) {
 };
 
 const createTweetElement = function(tweet) {
-  const $tweet = $("<article>").addClass("tweet");
+  const { user, content, created_at } = tweet; // Destructuring assignment
 
-  const $header = $("<header>");
-  const $avatar = $("<img>").addClass("avatar").attr("src", tweet.user.avatars);
-  const $name = $("<h2>").addClass("name").text(tweet.user.name);
-  const $handle = $("<span>").addClass("handle").text(tweet.user.handle);
-
-  $header.append($avatar, $name, $handle);
-  $tweet.append($header);
-
-  const $content = $("<p>").addClass("content").text(tweet.content.text);
-  $tweet.append($content);
-
-  const $footer = $("<footer>");
-  const $timestamp = $("<span>").addClass("timestamp").text(timeago.format(tweet.created_at));
-  const $icons = $("<div>").addClass("icons");
-  const $flagIcon = $("<i>").addClass("fas fa-flag");
-  const $retweetIcon = $("<i>").addClass("fas fa-retweet");
-  const $heartIcon = $("<i>").addClass("fas fa-heart");
-
-  $icons.append($flagIcon, $retweetIcon, $heartIcon);
-  $footer.append($timestamp, $icons);
-  $tweet.append($footer);
+  const $tweet = $(`
+    <article class="tweet">
+      <header>
+        <img class="avatar" src="${user.avatars}">
+        <h2 class="name">${$("<div>").text(user.name).html()}</h2>
+        <span class="handle">${$("<div>").text(user.handle).html()}</span>
+      </header>
+      <p class="content">${$("<div>").text(content.text).html()}</p>
+      <footer>
+        <span class="timestamp">${timeago.format(created_at)}</span>
+        <div class="icons">
+          <i class="fas fa-flag"></i>
+          <i class="fas fa-retweet"></i>
+          <i class="fas fa-heart"></i>
+        </div>
+      </footer>
+    </article>
+  `);
 
   return $tweet;
-}; 
+};
 
 const loadTweets = function() {
   $.ajax({
@@ -56,9 +53,10 @@ const loadTweets = function() {
   });
 };
 
-
 $(document).ready(function() {
   const $tweetForm = $('form');
+  loadTweets(); 
+  
   $tweetForm.submit(function(event) {
     event.preventDefault();
     console.log('Form submitted');
@@ -76,13 +74,19 @@ $(document).ready(function() {
       alert("Error: Tweet content exceeds the character limit");
     } else {
       // Valid tweet content, proceed with AJAX request
-      const formData = $tweetForm.serialize();
+      const formData = $tweetForm.serialize(); 
+
       $.ajax({
         url: '/tweets',
         method: 'POST',
         data: formData,
-        success: function(response) {
-          console.log(formData);
+        success: function(response) { 
+          console.log('New tweet created:', response); 
+          $tweetText.val(''); // Clear the tweet text input
+          const newTweet = response; // Retrieve the newly created tweet from the response
+          const $newTweetElement = createTweetElement(newTweet); // Create the HTML for the new tweet
+          $('.tweets-container').prepend($newTweetElement); // Prepend the new tweet HTML to the tweets container
+          loadTweets(); // Refresh the tweets
         },
         error: function(xhr, status, error) {
           // Handle errors if necessary
@@ -90,9 +94,4 @@ $(document).ready(function() {
       });
     }
   });
-});
-
-loadTweets(); 
-$(document).ready(function() {
-  renderTweets(data);
 });
