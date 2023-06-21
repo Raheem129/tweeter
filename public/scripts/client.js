@@ -59,25 +59,38 @@ const loadTweets = function() {
 
 $(document).ready(function() {
   const $tweetForm = $('form');
-console.log('hello');
   $tweetForm.submit(function(event) {
-    event.preventDefault(); 
+    event.preventDefault();
     console.log('Form submitted');
-    const formData = $tweetForm.serialize();
-    
-    $.ajax({
-      url: '/tweets',
-      method: 'POST',
-      data: formData, 
-      success: function(response) {
-        console.log(formData);
+    const $tweetText = $('#tweet-text');
+    const tweetContent = $tweetText.val();
+    // Clear any existing error messages
+    $('.error-message').remove();
 
-      },
-      error: function(xhr, status, error) {
-      }
-    })
-  })
-})
+    // Perform data validation
+    if (!tweetContent) {
+      // Display error message for empty tweet
+      alert("Error: Tweet content cannot be empty");
+    } else if (tweetContent.length > 140) {
+      // Display error message for exceeding character limit
+      alert("Error: Tweet content exceeds the character limit");
+    } else {
+      // Valid tweet content, proceed with AJAX request
+      const formData = $tweetForm.serialize();
+      $.ajax({
+        url: '/tweets',
+        method: 'POST',
+        data: formData,
+        success: function(response) {
+          console.log(formData);
+        },
+        error: function(xhr, status, error) {
+          // Handle errors if necessary
+        }
+      });
+    }
+  });
+});
 
 loadTweets(); 
 $(document).ready(function() {
