@@ -17,30 +17,34 @@
   height: 60px;
   border-radius: 50%;
   margin-right: 10px; 
-  order: -1;
 }
 
 article.tweet h3.username {
   margin: 0; 
-  margin-right:auto;
+  margin-left:auto;
 }
 
 
 
 .tweet span.handle {
-  color: #888;
+  color: #888; 
+  margin-left:auto;
 }
 
 .tweet .content p {
   margin: 10px 0; 
-  border-bottom: 4px solid #ccc;
+  border-bottom: 4px solid #6d6b6b; 
+  font-weight: bold;
+  display: inline;
 }
 
 .tweet footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #888;
+  color: #888; 
+  border-top: 4px solid #888;
+  padding-top: 7px;
 }
 
 .tweet .timestamp {
@@ -68,17 +72,14 @@ article.tweet h3.username {
 
 article.tweet {
   border: 4.5px solid #545149; 
-  
 } 
 
-h3 {
+.tweet h2.name {
   display: block;
-  font-size: 1.0em;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
+  font-size: 1em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-weight: bold; 
-  margin-top: auto;
+  font-weight: bold;
 }
-
