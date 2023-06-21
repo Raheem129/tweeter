@@ -42,3 +42,10 @@ output {
 .counter.invalid {
   color: red;
 }
+
+.error-message {
+  display: none; /* Initially hide the error message */
+  color: #ff0000; /* Red color for error message */
+  font-size: 14px;
+  margin-top: 5px;
+}
