@@ -33,4 +33,14 @@ nav .tweet-section {
 
 .tweet-section i {
   color: red;
+} 
+
+@media only screen and (max-width: 1023px) {
+  nav {
+    background-color: orange;
+  }
+
+  main.container {
+    margin-top: 0;
+  }
 }

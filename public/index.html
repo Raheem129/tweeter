@@ -42,29 +42,37 @@
       </div>
       <br>
       <div>
-          <h2>Raheem</h2>
+          <h2>Amy Mansell</h2>
       </div>
-    </header>
+    </header> 
+
+    
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form action="/tweets" method="POST"> 
-           <!-- Form elements... -->
-    <div class="error-message"></div> <!-- Error message container -->
-    <div>
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <div>
-            <button type="submit">Tweet</button> 
-            <span class="timeago" tweet-time="1623667941000"></span>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form> 
+      <div class="tweet-container">
+        <section class="new-tweet">
+          <h2>Compose Tweet</h2>
+          <form action="/tweets" method="POST">
+            <div class="error-message"></div>
+            <div>
+              <label for="tweet-text">What are you humming about?</label>
+              <textarea name="text" id="tweet-text"></textarea>
+              <div>
+                <button type="submit">Tweet</button>
+                <span class="timeago" tweet-time="1623667941000"></span>
+                <output name="counter" class="counter" for="tweet-text">140</output>
+              </div>
+            </div>
+          </form>
+        </section>
         <section class="tweets-container">
-          <!-- Container for tweets --> 
-        </section>      
+          <!-- Container for tweets -->
+        </section>
+      </div>
+    </main>
+    
+     
       </section>
     </main> 
   </body>

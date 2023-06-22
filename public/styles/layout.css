@@ -14,7 +14,8 @@ html {
  * Global layout stuff
  */
 
-body {
+ 
+ body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px; 
@@ -22,15 +23,35 @@ body {
 }
 
 nav .logo {
-  font-family: "Bungee", sans-serif; /* Apply Bungee font to the Tweeter logo in the nav */
+  font-family: "Bungee", sans-serif; 
 }  
 
 body, nav .logo {
-  font-family: "Source Sans 3", sans-serif; /* Fallback to sans-serif if the specified fonts are not available */
+  font-family: "Source Sans 3", sans-serif; 
 } 
 
 main {
   width: 90%;
   margin: 0 auto; 
   background-color: inherit;
+} 
+
+@media only screen and (max-width: 700px) {
+  body {
+    font-size: 18px;
+  }
+  
+  main.container {
+    width: 100%;
+  }
+  
+  .counter {
+    font-size: 16px;
+  }
+  
+  #mobile-view {
+    display: flex;
+    flex-direction: column;
+    padding-right: 100px;
+  }
 }
