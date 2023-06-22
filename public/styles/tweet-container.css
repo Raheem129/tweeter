@@ -4,27 +4,22 @@
   padding: 40px 50px 50px 20px;
   margin-bottom: 50px;
 }
-
 .tweet header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between; 
 
 }
-
 .tweet img {
   width: 70px;
   height: 60px;
   border-radius: 50%;
   margin-right: 10px; 
 }
-
 article.tweet h3.username {
   margin: 0; 
   margin-left:auto;
 }
-
-
 
 .tweet span.handle {
   color: #888; 
@@ -73,7 +68,6 @@ article.tweet h3.username {
 article.tweet {
   border: 4.5px solid #545149; 
 } 
-
 .tweet h2.name {
   display: block;
   font-size: 1em;
@@ -83,7 +77,6 @@ article.tweet {
   margin-inline-end: 0px;
   font-weight: bold;
 } 
-
 .container {
   display:flex; 
   justify-content: flex-end; 
